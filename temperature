@@ -1,1 +1,111 @@
-# Temperature-Converter
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyMNDuOT1RHJ4KT2Pn/mSrEm",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/yuvasri0728/Temperature-Converter/blob/main/temperature\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "MzZ1eM6xm5Xs",
+        "outputId": "1c7206e5-bc4c-4b8e-f2c2-3de8595e4d7a"
+      },
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "🌡️ Temperature Converter\n",
+            "Choose the conversion type:\n",
+            "1. Celsius to Fahrenheit and Kelvin\n",
+            "2. Fahrenheit to Celsius and Kelvin\n",
+            "3. Kelvin to Celsius and Fahrenheit\n",
+            "Enter your choice (1/2/3): 1\n"
+          ]
+        }
+      ],
+      "source": [
+        "def celsius_to_fahrenheit(c):\n",
+        "    return (c * 9/5) + 32\n",
+        "\n",
+        "def celsius_to_kelvin(c):\n",
+        "    return c + 273.15\n",
+        "\n",
+        "def fahrenheit_to_celsius(f):\n",
+        "    return (f - 32) * 5/9\n",
+        "\n",
+        "def fahrenheit_to_kelvin(f):\n",
+        "    return (f - 32) * 5/9 + 273.15\n",
+        "\n",
+        "def kelvin_to_celsius(k):\n",
+        "    return k - 273.15\n",
+        "\n",
+        "def kelvin_to_fahrenheit(k):\n",
+        "    return (k - 273.15) * 9/5 + 32\n",
+        "\n",
+        "def main():\n",
+        "    print(\"🌡️ Temperature Converter\")\n",
+        "    print(\"Choose the conversion type:\")\n",
+        "    print(\"1. Celsius to Fahrenheit and Kelvin\")\n",
+        "    print(\"2. Fahrenheit to Celsius and Kelvin\")\n",
+        "    print(\"3. Kelvin to Celsius and Fahrenheit\")\n",
+        "\n",
+        "    choice = input(\"Enter your choice (1/2/3): \")\n",
+        "\n",
+        "    try:\n",
+        "        if choice == '1':\n",
+        "            c = float(input(\"Enter temperature in Celsius: \"))\n",
+        "            print(f\"Fahrenheit: {celsius_to_fahrenheit(c):.2f} °F\")\n",
+        "            print(f\"Kelvin: {celsius_to_kelvin(c):.2f} K\")\n",
+        "\n",
+        "        elif choice == '2':\n",
+        "            f = float(input(\"Enter temperature in Fahrenheit: \"))\n",
+        "            print(f\"Celsius: {fahrenheit_to_celsius(f):.2f} °C\")\n",
+        "            print(f\"Kelvin: {fahrenheit_to_kelvin(f):.2f} K\")\n",
+        "\n",
+        "        elif choice == '3':\n",
+        "            k = float(input(\"Enter temperature in Kelvin: \"))\n",
+        "            if k < 0:\n",
+        "                print(\"⚠️ Temperature in Kelvin cannot be negative.\")\n",
+        "                return\n",
+        "            print(f\"Celsius: {kelvin_to_celsius(k):.2f} °C\")\n",
+        "            print(f\"Fahrenheit: {kelvin_to_fahrenheit(k):.2f} °F\")\n",
+        "\n",
+        "        else:\n",
+        "            print(\"⚠️ Invalid option selected.\")\n",
+        "\n",
+        "    except ValueError:\n",
+        "        print(\"⚠️ Please enter a valid number.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ]
+    }
+  ]
+}
